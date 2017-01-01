@@ -1,0 +1,31 @@
+Task,Duration,Start,Resource,Dependency
+Execution: Exec-in-exec env system,5,12/31/2016,Ryan,
+Execution: System for defining required data before runs,10,12/31/2016,Ryan,Execution: Exec-in-exec env system
+Execution: Add ability for OS-level scripts to request required data,1,12/31/2016,Ryan,Execution: System for defining required data before runs
+Execution: Ability to define commands that utilize required data,3,12/31/2016,Ryan,Execution: Add ability for OS-level scripts to request required data
+STIGs: Create custom STIGs,15,12/31/2016,Ryan,
+STIGs: ID top 30 STIGs,3,12/31/2016,Kevin/Bryce,
+STIGs: Add commands for top 30 STIGs,60,12/31/2016,Kevin/Bryce,STIGs: ID top 30 STIGs
+RMF: Import current controls,1,12/31/2016,Ryan,
+RMF: Create update system,3,12/31/2016,Ryan,RMF: Import current controls
+RMF: Automatic assignment of controls to checks,3,12/31/2016,Ryan,RMF: Import current controls
+RMF: Interface for manual assignment of controls to checks,2,12/31/2016,Ryan,RMF: Import current controls
+RMF: Manually assign controls to checks,5,12/31/2016,Kevin/Bryce,RMF: Interface for manual assignment of controls to checks
+Interview: Dump list of questions to be asked by location/machine,1,12/31/2016,Ryan,
+Interview: Interface to enter question answers,3,12/31/2016,Ryan,Interview: Dump list of questions to be asked by location/machine
+"Interview: Ability to tie an interview question to the output of other checks (ie, follow up on previous output)",5,12/31/2016,Ryan,Interview: Interface to enter question answers
+Clients: Better STIG assignment,1,12/31/2016,Ryan,
+Clients: Ability to customize RMF controls/overlays,3,12/31/2016,Ryan,RMF: Import current controls
+Clients: Apply customized RMF controls to output products (interview questions and reports),3,12/31/2016,Ryan,Clients: Ability to customize RMF controls/overlays
+Reports: Web-based Current Issues,1,12/31/2016,Ryan,
+Reports: Web-based Changes from previous scan,1,12/31/2016,Ryan,
+Reports: Web-based Control risk-ranking,1,12/31/2016,Ryan,
+Reports: File-based Current Issues,3,12/31/2016,Ryan,Reports: Web-based Current Issues
+Reports: File-based Changes from previous scan,3,12/31/2016,Ryan,Reports: Web-based Changes from previous scan
+Reports: File-based Control risk-ranking,3,12/31/2016,Ryan,Reports: Web-based Control risk-ranking
+Maintenance: Rebuild scan prev/change status ties periodically,2,12/31/2016,Ryan,
+Maintenance: Clear unneeded files,2,12/31/2016,Ryan,
+Maintenance: Better background task tracking,2,12/31/2016,Ryan,
+Maintenance: Ability to manually initiate tasks,1,12/31/2016,Ryan,
+Maintenance: Backup utility (clients/scan data),5,12/31/2016,Ryan,
+STIGs: Individual STIG export,1,12/31/2016,Ryan,Maintenance: Backup utility (clients/scan data)
