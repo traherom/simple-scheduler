@@ -2,7 +2,7 @@
 import csv
 import sys
 import argparse
-from gantt import Chart, Project, Task, Resource
+from .gantt import Chart, Project, Task, Resource
 
 def main():
     # Where we reading from?
@@ -20,9 +20,9 @@ def main():
     resources = {}
     tasks = {}
     with open(args.input) as csvfile:
-        csv = csv.DictReader(csvfile)
+        data = csv.DictReader(csvfile)
 
-        for row in csv:
+        for row in data:
             # Add new resources as encountered
             task_resources = []
             for r in row['Resource'].split('/'):
