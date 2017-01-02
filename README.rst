@@ -41,9 +41,9 @@ Where duration is given in days. Multiple resources can be separated by a "/". (
 
 An example csv_ can found found in the repository. It builds into:
 
-.. image:: blob/master/projectscheduler/example/example.svg
+.. image:: projectscheduler/example/example.svg
 
-.. _example csv: blob/master/projectscheduler/example/example.csv
+.. _example csv: projectscheduler/example/example.csv
 
 .. code:: shell
 
