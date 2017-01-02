@@ -41,9 +41,9 @@ Where duration is given in days. Multiple resources can be separated by a "/". (
 
 An example csv_ can found found in the repository. It builds into:
 
-.. image:: example/example.svg
+.. image:: https://raw.githubusercontent.com/traherom/simple-scheduler/master/example/example.svg
 
-.. _example csv: example/example.csv
+.. _example csv: https://raw.githubusercontent.com/traherom/simple-scheduler/master/example/example.csv
 
 .. code:: shell
 
