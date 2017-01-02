@@ -1,4 +1,5 @@
-# Simple Scheduler
+Simple Scheduler
+================
 I occasionally do freelancing work and needed a simple way to build
 out a notional schedule based on estimated task length. There are many
 Gantt chart builders out there, but they typically require choosing
@@ -16,15 +17,18 @@ From there it spits out an SVG with each task scheduled based on the rules:
 - A task's dependencies must be complete before it can begin.
 - (by default) No work is done on weekends.
 
-# Usage
+Usage
+=====
 
 
-# TODO
+TODO
+====
 1. Command line arguments
 2. `pip install`
 3. Multiple dependencies for a task?
 
-# Credits
+Credits
+=======
 (Python-gantt)[http://xael.org/pages/python-gantt-en.html] was the original
 inspiration for this project. I originally built the scheduler around it,
 but didn't like certain aspects of the API. This tool uses the rendering
