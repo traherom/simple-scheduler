@@ -29,7 +29,7 @@ TODO
 
 Credits
 =======
-_Python-gantt was the original inspiration for this project. I originally built the scheduler around it,
+Python-gantt_ was the original inspiration for this project. I originally built the scheduler around it,
 but didn't like certain aspects of the API. This tool uses the rendering
 code from that project.
 
