@@ -39,11 +39,14 @@ Create a CSV with your tasks in the format:
 
 Where duration is given in days. Multiple resources can be separated by a "/". (I.E, "Person1/Person2").
 
-An example csv_ can found found in the repository. It builds into:
+An `example csv`_ can found found in the repository. It builds into:
 
 .. image:: https://raw.githubusercontent.com/traherom/simple-scheduler/master/example/example.svg
+        :alt: Example output
+        :width: 100%
+        :align: center
 
-.. _csv: https://raw.githubusercontent.com/traherom/simple-scheduler/master/example/example.csv
+.. _example csv: https://raw.githubusercontent.com/traherom/simple-scheduler/master/example/example.csv
 
 .. code:: shell
 
