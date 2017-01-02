@@ -11,18 +11,18 @@ Simple Scheduler asks for just a CSV of tasks, how long they'll take,
 who is going to work on each task, and any dependencies of each task.
 From there it spits out an SVG with each task scheduled based on the rules:
 
-    - Tasks are scheduled in the order they are in the CSV.
-    - A resource (person) can only perform one task at a time.
-    - A task's dependencies must be complete before it can begin.
-    - (by default) No work is done on weekends.
+- Tasks are scheduled in the order they are in the CSV.
+- A resource (person) can only perform one task at a time.
+- A task's dependencies must be complete before it can begin.
+- (by default) No work is done on weekends.
 
 # Usage
 
 
 # TODO
-    1. Command line arguments
-    2. `pip install`
-    3. Multiple dependencies for a task?
+1. Command line arguments
+2. `pip install`
+3. Multiple dependencies for a task?
 
 # Credits
 (Python-gantt)[http://xael.org/pages/python-gantt-en.html] was the original
