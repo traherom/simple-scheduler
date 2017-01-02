@@ -130,12 +130,12 @@ class Chart:
         #self._reset_coord()
 
         if start is None:
-            start_date = self.start_date
+            start_date = self.start_date - ONE_DAY
         else:
             start_date = start
 
         if end is None:
-            end_date = self.end_date
+            end_date = self.end_date + 3 * ONE_DAY
         else:
             end_date = end
 
