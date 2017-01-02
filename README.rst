@@ -29,7 +29,7 @@ TODO
 
 Credits
 =======
-(Python-gantt)[http://xael.org/pages/python-gantt-en.html] was the original
+.. _Python-gantt: http://xael.org/pages/python-gantt-en.html was the original
 inspiration for this project. I originally built the scheduler around it,
 but didn't like certain aspects of the API. This tool uses the rendering
 code from that project.
