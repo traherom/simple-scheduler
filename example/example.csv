@@ -1,0 +1,31 @@
+Task,Duration,Start,Resource,Dependency
+Task 1,5,12/31/2016,Joe,
+Task 2,10,12/31/2016,Mark,Task 1
+Task 3,1,12/31/2016,Kevin,Task 1
+Task 4,3,12/31/2016,Leslie,Task 2
+Task 5,15,12/31/2016,Joe,
+Task 6,3,12/31/2016,Roger,
+Task 7,10,12/31/2016,Joe,Task 5
+Task 8,1,12/31/2016,Joe,
+Task 9,3,12/31/2016,Leslie,Task 8
+Task 10,3,12/31/2016,Kevin,Task 9
+Task 11,2,12/31/2016,Joe,Task 10
+Task 12,5,12/31/2016,Leslie,Task 11
+Task 13,1,12/31/2016,Joe,
+Task 14,3,12/31/2016,Mark,Task 2
+Task 15,5,12/31/2016,Joe/Roger,Task 4
+Task 16,1,12/31/2016,Joe,
+Task 17,3,12/31/2016,Joe,Task 16
+Task 18,3,12/31/2016,Andy/April,Task 17
+Task 19,1,12/31/2016,Joe,
+Task 20,1,12/31/2016,Joe,
+Task 21,1,12/31/2016,Kevin,
+Task 22,3,12/31/2016,Joe,Task 21
+Task 23,3,12/31/2016,Mark,Task 22
+Task 24,3,12/31/2016,Leslie,Task 23
+Task 25,2,12/31/2016,Joe,
+Task 26,2,12/31/2016,Andy,
+Task 27,2,12/31/2016,April,
+Task 28,1,12/31/2016,Joe,
+Task 29,5,12/31/2016,Mark,
+Task 30,1,12/31/2016,Joe,Task 27
