@@ -28,7 +28,6 @@ Usage
 =====
 
 Create a CSV with your tasks in the format:
-.. table:: Example CSV
 
    ===================  ======== ========== =========================
    Task                 Duration Resources  Dependency
