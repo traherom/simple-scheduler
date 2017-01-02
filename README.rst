@@ -39,6 +39,12 @@ Create a CSV with your tasks in the format:
 
 Where duration is given in days. Multiple resources can be separated by a "/". (I.E, "Person1/Person2").
 
+An example csv_ can found found in the repository. It builds into:
+
+.. image:: blob/master/projectscheduler/example/example.svg
+
+.. _example csv: blob/master/projectscheduler/example/example.csv
+
 .. code:: shell
 
    schedule input.csv output.svg
