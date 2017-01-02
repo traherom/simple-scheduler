@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
 import csv
 import sys
+import argparse
 from gantt import Chart, Project, Task, Resource
 
+# Where we reading from?
+parser = argparse.ArgumentParser(description='Create a Gantt chart from a CSV.')
+parser.add_argument('input', help='''CSV to read data from. CSV must have the headers "Resource",
+                                "Dependency", "Task", and "Duration".''')
+parser.add_argument('output', help='''Name of SVG file to write to''')
+args = parser.parse_args()
+
 # Create resources and tasks from CSV
-chart = Chart('Xylok')
-project = Project('Xylok Scanner')
+chart = Chart(args.input)
+project = Project(args.input)
 chart.add_project(project)
 
 resources = {}
 tasks = {}
-with open('data.csv') as csvfile:
+with open(args.input) as csvfile:
     csv = csv.DictReader(csvfile)
 
     for row in csv:
@@ -36,4 +44,4 @@ with open('data.csv') as csvfile:
 # Draw
 chart.calculate_schedule()
 print(chart)
-chart.save_svg('data.svg')
+chart.save_svg(args.output)

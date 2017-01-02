@@ -1,5 +1,5 @@
 """
-Core of simple-gantt
+Core of simple-scheduler
 """
 import re
 import random
