@@ -2,6 +2,7 @@
 Core of simple-gantt
 """
 import re
+import random
 from datetime import date, timedelta, datetime
 import logging
 from collections import defaultdict
@@ -23,6 +24,13 @@ FONT_ATTR = {
 
 ONE_DAY = timedelta(days=1)
 WEEKEND_DAYS = [5, 6]
+
+def random_color():
+    """
+    http://stackoverflow.com/questions/13998901/generating-a-random-hex-color-in-python
+    """
+    r = lambda: random.randint(0,255)
+    return '#%02X%02X%02X' % (r(),r(),r())
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -144,7 +152,7 @@ class Chart:
         projects_height = 0
         for proj in self.projects:
             ldwg = svgwrite.container.Group()
-            psvg, pheight = proj.svg(prev_y=2, start=start_date, end=end_date, color=self.color)
+            psvg, pheight = proj.svg(prev_y=2, start=start_date, end=end_date)
             if psvg is not None:
                 ldwg.add(psvg)
                 projects_svg.append(ldwg)
@@ -164,22 +172,23 @@ class Chart:
         for proj in projects_svg:
             dwg.add(proj)
 
-        dwg.save(width=(maxx+1)*cm, height=(projects_height+3)*cm)
-        return
+        # Draw dependencies between tasks
+        dep = self.svg_dependencies()
+        if dep is not None:
+            ldwg.add(dep)
 
-    def svg_dependencies(self, prj):
+        dwg.save(width=(maxx+1)*cm, height=(projects_height+3)*cm)
+
+    def svg_dependencies(self):
         """
         Draws svg dependencies between tasks according to coordinates cached
         when drawing tasks
-
-        Keyword arguments:
-        prj -- Project object to check against
         """
         svg = svgwrite.container.Group()
-        #for t in self.tasks:
-        #    trepr = t.svg_dependencies(prj)
-        #    if trepr is not None:
-        #        svg.add(trepr)
+        for t in self.tasks:
+            trepr = t.svg_dependencies()
+            if trepr is not None:
+                svg.add(trepr)
         return svg
 
     def _svg_calendar(self, maxx, maxy, start_date, today=None):
@@ -410,6 +419,9 @@ class Resource:
         self.chart = None
         self.set_chart(chart)
 
+        # Drawing info
+        self.color = random_color()
+
     def set_chart(self, chart):
         """
         Assigns task to given chart. Ensures chart has us included in their list.
@@ -432,7 +444,8 @@ class Resource:
         Determines if the resource is available to work on the given day
         """
         for task in self.tasks:
-            # If a task isn't scheduled, then we don't need to worry about it
+            # If a task isn't scheduled (yet), then we don't need to worry
+            # about scheduling around it
             if task.is_scheduled and task.start_date <= date and task.end_date >= date:
                 return False
 
@@ -592,6 +605,9 @@ class Task:
 
         y = prev_y * 10
 
+        if color is None:
+            color = self.resources[0].color
+
         def _time_diff(e, s):
             return (e - s).days
         def _time_diff_d(e, s):
@@ -716,6 +732,40 @@ class Task:
             svg.add(svgwrite.text.Text("{0}".format(t), insert=(tx*mm, (y + 8.5)*mm), fill='purple', stroke=FONT_ATTR['stroke'], stroke_width=FONT_ATTR['stroke_width'], font_family=FONT_ATTR['font_family'], font_size=15-5))
 
         return (svg, 1)
+
+    def svg_dependencies(self):
+        """
+        Draws svg dependencies between task and project according to coordinates
+        cached when drawing tasks
+        """
+        if not self.dependencies:
+            return None
+        else:
+            svg = svgwrite.container.Group()
+            for t in self.dependencies:
+                if not (t.drawn_x_end_coord is None or t.drawn_y_coord is None or self.drawn_x_begin_coord is None):
+                    # horizontal line
+                    svg.add(svgwrite.shapes.Line(
+                            start=((t.drawn_x_end_coord - 2)*mm, (t.drawn_y_coord + 5)*mm),
+                            end=((self.drawn_x_begin_coord)*mm, (t.drawn_y_coord + 5)*mm),
+                            stroke='black',
+                            stroke_dasharray='5,3',
+                            ))
+
+                    marker = svgwrite.container.Marker(insert=(5,5), size=(10,10))
+                    marker.add(svgwrite.shapes.Circle((5, 5), r=5, fill='#000000', opacity=0.5, stroke_width=0))
+                    svg.add(marker)
+                    # vertical line
+                    eline = svgwrite.shapes.Line(
+                        start=((self.drawn_x_begin_coord)*mm, (t.drawn_y_coord + 5)*mm),
+                        end=((self.drawn_x_begin_coord)*mm, (self.drawn_y_coord + 5)*mm),
+                        stroke='black',
+                        stroke_dasharray='5,3',
+                        )
+                    eline['marker-end'] = marker.get_funciri()
+                    svg.add(eline)
+
+        return svg
 
     def __str__(self):
         """
