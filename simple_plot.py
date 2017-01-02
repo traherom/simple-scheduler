@@ -35,4 +35,5 @@ with open('data.csv') as csvfile:
 
 # Draw
 chart.calculate_schedule()
-print(chart)
+#print(chart)
+chart.save_svg('data.svg')
