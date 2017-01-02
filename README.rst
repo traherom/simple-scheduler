@@ -57,9 +57,7 @@ An `example csv`_ can found found in the repository. It builds into:
 
 TODO
 ====
-1. Command line arguments
-2. `pip install`
-3. Multiple dependencies for a task?
+1. Multiple dependencies for a task?
 
 Credits
 =======
