@@ -31,7 +31,7 @@ Create a CSV with your tasks in the format:
 .. table:: Example CSV
 
    ===================  ======== ========== =========================
-       Task               Duration Resources  Dependency
+   Task                 Duration Resources  Dependency
    ===================  ======== ========== =========================
    Name of task 1       6        Person 1
    Some other task      3        Person 1
