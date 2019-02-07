@@ -572,7 +572,7 @@ class Task:
         """
         work_done = 0
         end_date = self.start_date
-        while work_done < self.duration:
+        while work_done + 1 < self.duration:
             end_date += ONE_DAY
 
             if end_date.weekday() not in self.project.chart.skipped_days:

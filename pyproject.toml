@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "projectscheduler"
+version = "0.6.0"
+description = "Simple project scheduling tool"
+
+license = "MIT"
+
+authors = [
+    "Ryan Morehart <ryan@moreharts.com>"
+]
+
+readme = 'README.rst'
+
+repository = "https://github.com/traherom/simple-scheduler"
+homepage = "https://github.com/traherom/simple-scheduler"
+
+keywords = ['packaging', 'poetry']
+
+[tool.poetry.dependencies]
+python = "^3.6"
+svgwrite = "^1.2"
+
+[tool.poetry.scripts]
+schedule = 'projectscheduler.plot:main'
